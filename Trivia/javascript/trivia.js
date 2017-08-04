@@ -45,7 +45,7 @@ $(document).ready(function() {
 		$("#answerC").show();
 		$("#answerD").show();
 
-		$("#question").html(questionNumber.question);
+		$("#question").html(questionNumber['question']);
 		$("#answerA").text(questionNumber.answers[0]);
 		$("#answerB").text(questionNumber.answers[1]);
 		$("#answerC").text(questionNumber.answers[2]);
@@ -77,40 +77,45 @@ $(document).ready(function() {
 	// }, 10000);
 
 	// }
-	// function checkCorrect () {
-	// 	questionNumber.answers[j];
-	// 	if ($(questionNumber[i].answers[j]).val () === questionNumber[i].answers[solution]) {
-	// 		alert("that is correct!");
-	// 		};
-		// else {
-		// 	alert("wrong!");
-		// }
+	function checkCorrect () {
+		var value;
+		value = $(this).attr("value");
+		var valueAgain = parseInt(value);
+		if (valueAgain === questionNumber[i].solution) {
+			alert("that is correct!");
+			};
 
-	// };
+	};
 	function nextQuestion () {
 		
 		$("#answerA").on("click", function (){
-			// checkCorrect ();
-			console.log(questionNumber[i].solution);
+			checkCorrect ();
+			$("#image").html(questionNumber[i].image);
 			i++;
 			trivia (questionNumber[i]);
-			$("#image").show();
-			$("#image").html(questionNumber[i].image);
 		});
 
 		$("#answerB").on("click", function (){
+			checkCorrect ();
+			$("#image").html(questionNumber[i].image);
 			i++;
 			trivia (questionNumber[i]);
 		});
 
 		$("#answerC").on("click", function (){
+			checkCorrect ();
+			$("#image").html(questionNumber[i].image);
 			i++;
 			trivia (questionNumber[i]);
 		});
 		$("#answerD").on("click", function (){
+			checkCorrect ();
+			$("#image").html(questionNumber[i].image);
 			i++;
 			trivia (questionNumber[i]);
 		});
+
+
 	};
 
 	nextQuestion ();
